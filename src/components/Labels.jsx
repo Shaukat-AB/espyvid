@@ -1,4 +1,4 @@
-import { LabelContext } from "../context/labelContext";
+import { LabelContext } from "../context/LabelContext";
 import { labelArr } from "../utils/constants";
 import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
