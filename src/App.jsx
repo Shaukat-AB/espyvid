@@ -6,7 +6,7 @@ import ErrorPage from "./pages/ErrorPage";
 import PlayVideo from "./pages/PlayVideo";
 import "./App.css";
 import "./assets/media-queries.css";
-import { LabelContext } from "./context/labelContext";
+import { LabelContext } from "./context/LabelContext";
 import { Routes, Route, useLocation } from "react-router-dom";
 import { useState } from "react";
 
