@@ -2,6 +2,10 @@
 # EspyVid
 EspyVid is a video streaming web application where users can select or search videos to watch. The web app built using React.js with integration of YouTube API to show videos and provide an experience similar to YouTube. The app depends on Tanstack Query to cache network call and reduce the number of requests to the API, React Router to enable "client side routing", react hooks and context api to manage app state, a responsive design, and dark mode.
 
+## DEMO
+Visit the live demo of EspyVid at:
+[espyvid.vercel.app](https://espyvid.vercel.app/)
+
 ## Tech Stack
 - React.js
 - React Query

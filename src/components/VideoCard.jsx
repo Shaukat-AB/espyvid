@@ -37,7 +37,6 @@ const VideoCard = ({
       <div
         className="video-thumbnail"
         onClick={OnVideoClick}
-        role="Button"
         title={data.title}
       >
         {styleClass !== "play-card" && (

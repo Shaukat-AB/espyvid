@@ -26,7 +26,7 @@ const Header = ({ searchQuery, current }) => {
           <Search toggler={searchToggler} searchQuery={searchQuery} />
         )}
 
-        <button className="btn btn-toggle icon" onClick={() => searchToggler()}>
+        <button className="btn btn-toggle icon" aria-label="toggle search bar" onClick={() => searchToggler()}>
           <BiSearch />
         </button>
 
