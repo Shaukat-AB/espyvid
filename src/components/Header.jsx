@@ -9,7 +9,9 @@ import { BiSearch, BiMenu, BiSolidCaretUpSquare } from "react-icons/bi";
 
 const Header = ({ searchQuery, current }) => {
   const playVid = useLocation().pathname.includes("playVideo");
-  const [searchToggle, searchToggler] = useToggle(!playVid && window.innerWidth > 699);
+  const [searchToggle, searchToggler] = useToggle(
+    !playVid && window.innerWidth > 699
+  );
   const [navToggle, navToggler] = useContext(SideBarContext);
 
   window.addEventListener("resize", () => {
@@ -19,16 +21,22 @@ const Header = ({ searchQuery, current }) => {
 
   return (
     <header className="header">
-      <div className="top-nav" >
+      <div className="top-nav">
         <Logo toggler={navToggler} />
 
         {searchToggle && (
           <Search toggler={searchToggler} searchQuery={searchQuery} />
         )}
 
-        <button className="btn btn-toggle icon" aria-label="toggle search bar" onClick={() => searchToggler()}>
-          <BiSearch />
-        </button>
+        {!searchToggle && (
+          <button
+            className="btn btn-toggle icon"
+            aria-label="toggle search bar"
+            onClick={() => searchToggler(true)}
+          >
+            <BiSearch />
+          </button>
+        )}
 
         <Settings />
       </div>
@@ -54,7 +62,8 @@ const Logo = ({ toggler }) => {
       </button>
 
       <span className="logo">
-        <BiSolidCaretUpSquare className="icon" />EspyVid
+        <BiSolidCaretUpSquare className="icon" />
+        EspyVid
       </span>
     </div>
   );

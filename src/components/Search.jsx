@@ -15,8 +15,8 @@ const Search = ({ toggler, searchQuery }) => {
   };
 
   return (
-    <div className="search-bar" role="searchbox" onClick={(e)=>{e.stopPropagation()}}>
-      <button className="btn search-back" onClick={() => toggler()}>
+    <div className="search-bar" role="searchbox" >
+      <button className="btn search-back" onClick={() => toggler(false)}>
         <HiArrowLeft className="icon" />
       </button>
 
