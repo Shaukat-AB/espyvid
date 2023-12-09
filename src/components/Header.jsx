@@ -2,7 +2,7 @@ import Search from "./Search";
 import NavBar from "./NavBar";
 import Settings from "./Settings";
 import SideBarContext from "../context/SideBarContext";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import useToggle from "../hooks/useToggle";
 import { useLocation } from "react-router-dom";
 import { BiSearch, BiMenu, BiSolidCaretUpSquare } from "react-icons/bi";
@@ -13,8 +13,10 @@ const Header = ({ searchQuery, current }) => {
     !playVid && window.innerWidth > 699
   );
   const [navToggle, navToggler] = useContext(SideBarContext);
+  const width = window.innerWidth
 
   window.addEventListener("resize", () => {
+    if(width == window.innerWidth ) return;
     window.innerWidth > 699 ? searchToggler(true) : searchToggler(false);
     window.innerWidth > 1199 ? !playVid && navToggler(true) : navToggler(false);
   });
