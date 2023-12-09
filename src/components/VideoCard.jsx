@@ -56,7 +56,7 @@ const VideoSearchUI = ({ vid }) => {
 
   return (
     <div className="video-thumbnail-details">
-      <div>
+      <div className="details-col">
         <h2 className="video-title" title={vid.title}>
           {slicedTitle}
         </h2>

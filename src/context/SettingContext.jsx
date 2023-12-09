@@ -18,14 +18,13 @@ const changeTheme = () => {
 const getSavedSettings = () => {
   if( localStorage.getItem("settings") ) {
     let settings = JSON.parse(localStorage.getItem("settings"));
-    (settings.theme === 'dark') && changeTheme();
-    (window.matchMedia('(prefers-color-scheme: dark)').matches) && changeTheme();
+    settings.theme === 'dark' && changeTheme()
     return settings;
   }return null;
 }
 
 const currentSettings = ( getSavedSettings() || intialSettings );
-
+// console.log(currentSettings.theme, intialSettings.theme)
 const SettingProvider = ({ children }) => {
   const [settings, setSettings] = useState( currentSettings );
 
@@ -38,10 +37,10 @@ const SettingProvider = ({ children }) => {
   };
 
   useEffect(()=> {
-    window.matchMedia('(prefers-color-scheme: light)').addEventListener('change', (matches) => {
-      if(matches) settings.theme !== 'dark' && changeTheme();
-      else settings.theme === 'dark' && changeTheme();
-    });
+    if( window.matchMedia( '(prefers-color-scheme:dark)').matches ){
+      if( localStorage.getItem("settings") ) return;
+      settings.theme !== 'dark' && changeSettings("theme", "dark");
+    }
   },[])
 
 

@@ -8,9 +8,9 @@ import { useLocation } from "react-router-dom";
 import { BiSearch, BiMenu, BiSolidCaretUpSquare } from "react-icons/bi";
 
 const Header = ({ searchQuery, current }) => {
-  const [searchToggle, searchToggler] = useToggle(window.innerWidth > 699);
-  const [navToggle, navToggler] = useContext(SideBarContext);
   const playVid = useLocation().pathname.includes("playVideo");
+  const [searchToggle, searchToggler] = useToggle(!playVid && window.innerWidth > 699);
+  const [navToggle, navToggler] = useContext(SideBarContext);
 
   window.addEventListener("resize", () => {
     window.innerWidth > 699 ? searchToggler(true) : searchToggler(false);
@@ -19,7 +19,7 @@ const Header = ({ searchQuery, current }) => {
 
   return (
     <header className="header">
-      <div className="top-nav">
+      <div className="top-nav" >
         <Logo toggler={navToggler} />
 
         {searchToggle && (
