@@ -21,6 +21,8 @@ const SuperProvider = ({ children }) => {
   const queryClient = new QueryClient({
     defaultOptions: {
       queries: {
+        staleTime: 6 * 60 * 60 * 1000, // about 6 hour
+        cacheTime: 24 * 60 * 60 * 1000, // about 24 hour
         refetchOnWindowFocus: false,
         retry: false,
       },

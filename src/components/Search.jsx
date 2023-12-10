@@ -1,26 +1,30 @@
 import { useState } from "react";
 import { BiSearch } from "react-icons/bi";
 import { HiArrowLeft } from "react-icons/hi";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Search = ({ toggler, searchQuery }) => {
   const [value, setValue] = useState("");
+  const navigate = useNavigate();
 
   const handleChange = (val) => {
     setValue(() => val);
   };
 
-  const handleClick = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
     searchQuery(value);
+    value && navigate("/results?value=" + value);
+    setValue(() => "");
   };
 
   return (
-    <div className="search-bar" role="searchbox" >
+    <div className="search-bar" role="searchbox">
       <button className="btn search-back" onClick={() => toggler(false)}>
         <HiArrowLeft className="icon" />
       </button>
 
-      <div className="search-container">
+      <form className="search-container" onSubmit={handleSubmit}>
         <input
           className="search-input"
           name="search"
@@ -28,19 +32,19 @@ const Search = ({ toggler, searchQuery }) => {
           placeholder="search..."
           value={value}
           onChange={(e) => handleChange(e.target.value)}
+          minLength={"3"}
           required
         />
 
-        <Link
-          reloadDocument
-          to={value && "/results?value=" + value}
+        <button
           className="btn search-btn"
-          onClick={handleClick}
           title="search"
+          aria-label="search"
+          type="submit"
         >
           <BiSearch className="icon" />
-        </Link>
-      </div>
+        </button>
+      </form>
     </div>
   );
 };

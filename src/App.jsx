@@ -8,27 +8,35 @@ import "./App.css";
 import "./assets/media-queries.css";
 import { LabelContext } from "./context/LabelContext";
 import { Routes, Route, useLocation } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function App() {
-
-  const [active, setActive] = useState( { label:"All", nav:{ id:0, title:"Home" } });
+  const [active, setActive] = useState({
+    label: "All",
+    nav: { id: 0, title: "Home" },
+  });
 
   const [query, setQuery] = useState("");
-  const vidKey = useLocation().hash.replace('#', '') || '';
+  const vidKey = useLocation().hash.replace("#", "") || "";
 
   const changeLabelActive = (value) => {
-    setActive( () => ({ label: value, nav: { id:0, title:"Home" } }) );
+    setActive(() => ({ label: value, nav: { id: 0, title: "Home" } }));
   };
 
   const changeNavActive = (value) => {
-    setActive( () => ({ label: "All", nav: value }) );
+    setActive(() => ({ label: "All", nav: value }));
   };
 
   const searchQuery = (value = "") => {
     value && setQuery(() => value);
   };
 
+  useEffect(() => {
+    if (query.length > 2 && (active.label != "All" || active.nav.id != 0)) {
+      setActive(() => ({ label: "All", nav: { id: 0, title: "Home" } }));
+      setQuery(() => "");
+    }
+  }, [query]);
   return (
     <LabelContext.Provider value={[active.label, changeLabelActive]}>
       <Header

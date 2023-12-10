@@ -172,8 +172,8 @@
   left: 0px;
   position: fixed;
   background-color: var(--bg-color);
-  /* background-color: #625f7a; */
-  /* background: linear-gradient(-10deg, #625f7a, #838096); */
+  overflow: scroll;
+  overscroll-behavior: contain;
 }
 
 /* Styling Search */
@@ -189,7 +189,7 @@
   background-color: var(--bg-color);
   gap: 1rem;
   padding: 1.6rem 0;
-  z-index: 11;
+  z-index: 10;
 }
 
 .search-btn{
@@ -215,7 +215,7 @@
 }
 
 .search-input:focus {
-  z-index: 11;
+  z-index: 1;
 }
 
 .search-input{
