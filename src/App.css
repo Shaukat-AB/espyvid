@@ -165,15 +165,22 @@
 .side-bar {
   align-items: flex-start;
   border-radius: 2px;
-  height: 100%;
   z-index: 10;
   width: auto;
   top: 0px;
   left: 0px;
   position: fixed;
   background-color: var(--bg-color);
-  overflow: scroll;
-  overscroll-behavior: contain;
+  overflow: auto;
+}
+
+.side-bar::-webkit-scrollbar {
+  width: 0px;
+}
+
+.nav-list, .side-bar {
+  height: 100vh;
+  overscroll-behavior-y: contain;
 }
 
 /* Styling Search */

@@ -67,16 +67,16 @@ button, a, li, select {
 }
 
 ::-webkit-scrollbar-track{
-  background: #fff
+  background: var(--bg-color)
 }
 
 ::-webkit-scrollbar-thumb{
-  background: #666;
+  background: #777;
   border-radius: 12px;
 }
 
 ::-webkit-scrollbar-thumb:hover{
-  background: #555;
+  background: #666;
 }
 /* 
 #root, .main, .side-bar, .header {
