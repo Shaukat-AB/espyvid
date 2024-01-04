@@ -4,8 +4,6 @@ import Home from "./pages/Home";
 import SearchResults from "./pages/SearchResults";
 import ErrorPage from "./pages/ErrorPage";
 import PlayVideo from "./pages/PlayVideo";
-import "./App.css";
-import "./assets/media-queries.css";
 import { LabelContext } from "./context/LabelContext";
 import { Routes, Route, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
