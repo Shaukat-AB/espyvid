@@ -10,7 +10,7 @@ import { BiLike, BiDislike, BiShare } from "react-icons/bi";
 import { formatCount, formatDate } from "../utils/formatFunctions";
 
 const PlayVideo = () => {
-  const id = useLocation().hash.replace("#", "");
+  const id = useLocation().search.replace("?v=", "");
   const navigate = useNavigate();
   const [video, setVideo] = useState(null);
   const [navToggle, navToggler] = useContext(SideBarContext);

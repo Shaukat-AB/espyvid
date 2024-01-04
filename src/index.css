@@ -78,7 +78,3 @@ button, a, li, select {
 ::-webkit-scrollbar-thumb:hover{
   background: #666;
 }
-/* 
-#root, .main, .side-bar, .header {
-  background-color: var(--bg-color);
-} */

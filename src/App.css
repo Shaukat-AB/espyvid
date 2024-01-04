@@ -112,8 +112,8 @@
   position: absolute;
   display: flex;
   flex-direction: column;
-  top: 16px;
-  right: 60px;
+  top: 90%;
+  right: min(5%, 30px);
   background-color: var(--bg-color);
   box-shadow: var(--pannel-shadow);
   z-index: 20;

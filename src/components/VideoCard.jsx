@@ -29,7 +29,7 @@ const VideoCard = ({
   const navigate = useNavigate();
 
   const OnVideoClick = () => {
-    navigate("/playVideo?vId#" + id);
+    navigate("/playVideo?v=" + id);
   };
 
   return (

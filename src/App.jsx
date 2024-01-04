@@ -10,14 +10,14 @@ import { LabelContext } from "./context/LabelContext";
 import { Routes, Route, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 
-function App() {
+const App = () => {
   const [active, setActive] = useState({
     label: "All",
     nav: { id: 0, title: "Home" },
   });
 
   const [query, setQuery] = useState("");
-  const vidKey = useLocation().hash.replace("#", "") || "";
+  const vidKey = useLocation().search.replace("?v=", "") || "";
 
   const changeLabelActive = (value) => {
     setActive(() => ({ label: value, nav: { id: 0, title: "Home" } }));
@@ -58,9 +58,9 @@ function App() {
           }
         />
 
-        <Route path={"/results"} element={<SearchResults query={query} />} />
+        <Route path="/results" element={<SearchResults query={query} />} />
 
-        <Route path="playVideo" element={<PlayVideo key={vidKey} />} />
+        <Route path="/playVideo" element={<PlayVideo key={vidKey} />} />
 
         <Route path="*" element={<ErrorPage />} />
       </Routes>
