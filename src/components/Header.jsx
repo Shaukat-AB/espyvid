@@ -2,10 +2,11 @@ import Search from "./Search";
 import NavBar from "./NavBar";
 import Settings from "./Settings";
 import SideBarContext from "../context/SideBarContext";
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import useToggle from "../hooks/useToggle";
 import { useLocation } from "react-router-dom";
-import { BiSearch, BiMenu, BiSolidCaretUpSquare } from "react-icons/bi";
+import { BiSearch, BiMenu } from "react-icons/bi";
+import logo from "../assets/espyvid-logo.png";
 
 const Header = ({ searchQuery, current }) => {
   const playVid = useLocation().pathname.includes("playVideo");
@@ -64,7 +65,7 @@ const Logo = ({ toggler }) => {
       </button>
 
       <span className="logo">
-        <BiSolidCaretUpSquare className="icon" />
+        <img className="" width={32} src={logo} />
         EspyVid
       </span>
     </div>
